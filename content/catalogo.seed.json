@@ -1,0 +1,336 @@
+{
+  "version": 1,
+  "categorias": [
+    {
+      "slug": "paginas-web",
+      "titulo": "Páginas web",
+      "descripcion": "Sitios informativos para presentar tu negocio en internet, con diseño adaptado a celulares, tabletas y computadoras.",
+      "orden": 1,
+      "tipo_precio": "fijo",
+      "planes": [
+        {
+          "slug": "paginas-web-basico",
+          "nombre": "Plan básico",
+          "precio_ars": 200000,
+          "etiqueta_precio": null,
+          "descripcion": "Una página web informativa y responsive para presentar tu negocio.",
+          "orden": 1,
+          "activo": true,
+          "items": [
+            { "texto": "Página web informativa y responsive.", "orden": 1 },
+            { "texto": "Presentación del negocio, información e imágenes acordadas.", "orden": 2 },
+            { "texto": "Tres piezas gráficas para redes sociales.", "orden": 3 },
+            { "texto": "Código QR que dirija a la página.", "orden": 4 },
+            { "texto": "Diseño adaptado a celulares, tabletas y computadoras.", "orden": 5 }
+          ]
+        },
+        {
+          "slug": "paginas-web-profesional",
+          "nombre": "Plan profesional",
+          "precio_ars": 400000,
+          "etiqueta_precio": null,
+          "descripcion": "Todo lo del plan básico, con un diseño más elaborado y material audiovisual.",
+          "orden": 2,
+          "activo": true,
+          "items": [
+            { "texto": "Todo lo contemplado en el plan básico.", "orden": 1 },
+            { "texto": "Diseño más elaborado, con animaciones cuando correspondan.", "orden": 2 },
+            { "texto": "Material audiovisual promocional para el negocio.", "orden": 3 },
+            { "texto": "Piezas gráficas y videos para redes sociales según el alcance acordado.", "orden": 4 },
+            { "texto": "Integración de ubicación en Google Maps cuando corresponda y el cliente proporcione o autorice la información necesaria.", "orden": 5 },
+            { "texto": "Código QR y diseño responsive.", "orden": 6 }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    {
+      "slug": "cartas-digitales",
+      "titulo": "Cartas digitales",
+      "descripcion": "Cartas digitales para restaurantes y comercios con menú disponible desde un código QR.",
+      "orden": 2,
+      "tipo_precio": "fijo",
+      "planes": [
+        {
+          "slug": "cartas-basico",
+          "nombre": "Plan básico",
+          "precio_ars": 150000,
+          "etiqueta_precio": null,
+          "descripcion": "Carta digital estática con presentación del negocio y menú.",
+          "orden": 1,
+          "activo": true,
+          "items": [
+            { "texto": "Carta digital estática.", "orden": 1 },
+            { "texto": "Hasta dos secciones: presentación del negocio y menú.", "orden": 2 },
+            { "texto": "Carga inicial de la información acordada.", "orden": 3 },
+            { "texto": "Código QR.", "orden": 4 },
+            { "texto": "Tres piezas gráficas para redes sociales.", "orden": 5 },
+            { "texto": "Diseño responsive.", "orden": 6 }
+          ]
+        },
+        {
+          "slug": "cartas-moderado",
+          "nombre": "Plan moderado",
+          "precio_ars": 200000,
+          "etiqueta_precio": null,
+          "descripcion": "Carta digital estática con carga inicial de hasta 20 platos e imágenes.",
+          "orden": 2,
+          "activo": true,
+          "items": [
+            { "texto": "Carta digital estática.", "orden": 1 },
+            { "texto": "Carga inicial de hasta 20 platos.", "orden": 2 },
+            { "texto": "Hasta dos imágenes por plato cuando estén disponibles.", "orden": 3 },
+            { "texto": "Código QR.", "orden": 4 },
+            { "texto": "Tres videos y tres piezas gráficas para redes sociales.", "orden": 5 },
+            { "texto": "Diseño responsive.", "orden": 6 }
+          ]
+        },
+        {
+          "slug": "cartas-premium",
+          "nombre": "Plan premium",
+          "precio_ars": 300000,
+          "etiqueta_precio": null,
+          "descripcion": "Aplicación web con panel de administración para gestionar el menú.",
+          "orden": 3,
+          "activo": true,
+          "items": [
+            { "texto": "Aplicación web con panel de administración.", "orden": 1 },
+            { "texto": "Carga inicial de hasta 30 platos.", "orden": 2 },
+            { "texto": "Hasta dos imágenes por plato cuando estén disponibles.", "orden": 3 },
+            { "texto": "Edición de precios y datos del menú mediante el panel.", "orden": 4 },
+            { "texto": "Opción de exportar o imprimir el menú en PDF.", "orden": 5 },
+            { "texto": "Código QR.", "orden": 6 },
+            { "texto": "Tres videos y tres piezas gráficas para redes sociales.", "orden": 7 },
+            { "texto": "Modo claro y oscuro.", "orden": 8 }
+          ]
+        }
+      ],
+      "extras": [
+        {
+          "slug": "extra-actualizar-precios",
+          "nombre": "Actualización de precios",
+          "descripcion": "Actualización sencilla de precios de una carta estática, por intervención.",
+          "precio_ars": 10000,
+          "nota": "Precio de referencia por intervención.",
+          "orden": 1
+        },
+        {
+          "slug": "extra-pack-imagenes",
+          "nombre": "Pack de hasta 10 imágenes",
+          "descripcion": "Pack de imágenes adicionales para la carta.",
+          "precio_ars": 50000,
+          "nota": "Es un pack de imágenes, no de platos: con dos imágenes por plato equivale como máximo a cinco platos con dos imágenes cada uno.",
+          "orden": 2
+        },
+        {
+          "slug": "extra-creacion-imagenes",
+          "nombre": "Modificación o creación de imágenes",
+          "descripcion": "Modificación o creación de imágenes para la carta o las redes.",
+          "precio_ars": 20000,
+          "nota": "Precio de referencia, previa definición del alcance.",
+          "orden": 3
+        },
+        {
+          "slug": "extra-edicion-video",
+          "nombre": "Edición o cambio de video",
+          "descripcion": "Edición o modificación de un video existente.",
+          "precio_ars": 30000,
+          "nota": "Precio de referencia.",
+          "orden": 4
+        },
+        {
+          "slug": "extra-ampliaciones",
+          "nombre": "Nuevas secciones o funcionalidades",
+          "descripcion": "Ampliaciones de la carta digital: nuevas secciones, funcionalidades o mejoras.",
+          "precio_ars": null,
+          "nota": "Se cotizan aparte.",
+          "orden": 5
+        }
+      ]
+    },
+    {
+      "slug": "aplicaciones-web",
+      "titulo": "Aplicaciones y sistemas",
+      "descripcion": "Aplicaciones web y sistemas de gestión a medida: turnos, pedidos, inventario, ventas, administración u otros procesos.",
+      "orden": 3,
+      "tipo_precio": "a_medida",
+      "planes": [
+        {
+          "slug": "aplicaciones-a-medida",
+          "nombre": "Presupuesto personalizado",
+          "precio_ars": null,
+          "etiqueta_precio": "A cotizar",
+          "descripcion": "Desarrollos personalizados según las necesidades de cada negocio. Se hace un relevamiento y un presupuesto según funcionalidades, complejidad, horas de trabajo y alcance.",
+          "orden": 1,
+          "activo": true,
+          "items": [
+            { "texto": "Relevamiento de necesidades con el cliente.", "orden": 1 },
+            { "texto": "Presupuesto según funcionalidades, complejidad y alcance.", "orden": 2 },
+            { "texto": "Pueden incluir base de datos, autenticación y panel administrativo únicamente cuando estén contemplados en el proyecto acordado.", "orden": 3 }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    {
+      "slug": "videos-contenido",
+      "titulo": "Videos y contenido",
+      "descripcion": "Videos publicitarios y contenido digital para redes y para tu negocio.",
+      "orden": 4,
+      "tipo_precio": "a_cotizar",
+      "planes": [
+        {
+          "slug": "videos-a-cotizar",
+          "nombre": "Según alcance",
+          "precio_ars": null,
+          "etiqueta_precio": "A cotizar",
+          "descripcion": "Servicios que pueden contratarse según las necesidades del negocio. Se cotizan según duración, edición, recursos y alcance.",
+          "orden": 1,
+          "activo": true,
+          "items": [
+            { "texto": "Se cotizan según duración, edición, recursos y alcance.", "orden": 1 },
+            { "texto": "El alcance se define con cada cliente.", "orden": 2 }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    {
+      "slug": "mantenimiento",
+      "titulo": "Mantenimiento",
+      "descripcion": "Mantenimiento mensual para mantener tu sitio o aplicación funcionando.",
+      "orden": 5,
+      "tipo_precio": "fijo",
+      "planes": [
+        {
+          "slug": "mantenimiento-estatica",
+          "nombre": "Página estática",
+          "precio_ars": 10000,
+          "etiqueta_precio": "ARS · mensuales",
+          "descripcion": "Mantenimiento mensual para páginas estáticas.",
+          "orden": 1,
+          "activo": true,
+          "items": [
+            { "texto": "Precio de referencia mensual.", "orden": 1 },
+            { "texto": "Las tareas incluidas y los límites se definen con cada cliente.", "orden": 2 },
+            { "texto": "No incluye funcionalidades nuevas ilimitadas.", "orden": 3 },
+            { "texto": "Dominio, alojamiento y servicios externos se presupuestan por separado cuando corresponda.", "orden": 4 }
+          ]
+        },
+        {
+          "slug": "mantenimiento-aplicacion",
+          "nombre": "Aplicación con panel",
+          "precio_ars": 40000,
+          "etiqueta_precio": "ARS · mensuales",
+          "descripcion": "Mantenimiento mensual para aplicaciones con panel de administración.",
+          "orden": 2,
+          "activo": true,
+          "items": [
+            { "texto": "Precio de referencia mensual.", "orden": 1 },
+            { "texto": "Las tareas incluidas y los límites se definen con cada cliente.", "orden": 2 },
+            { "texto": "No incluye funcionalidades nuevas ilimitadas.", "orden": 3 },
+            { "texto": "Dominio, alojamiento y servicios externos se presupuestan por separado cuando corresponda.", "orden": 4 }
+          ]
+        }
+      ],
+      "extras": []
+    }
+  ],
+  "faqs": [
+    {
+      "slug": "precios-referencia",
+      "pregunta": "¿Los precios publicados son fijos?",
+      "respuesta": "Los importes publicados son precios de referencia en pesos argentinos. El alcance definitivo se acuerda con cada cliente, por lo que el presupuesto final puede variar según las funcionalidades y el trabajo involucrado.",
+      "orden": 1,
+      "publicada": true
+    },
+    {
+      "slug": "dominio-alojamiento",
+      "pregunta": "¿El dominio y el alojamiento están incluidos?",
+      "respuesta": "No. El dominio, el alojamiento y los servicios externos se presupuestan por separado cuando corresponden en cada proyecto.",
+      "orden": 2,
+      "publicada": true
+    },
+    {
+      "slug": "plazos",
+      "pregunta": "¿Cuánto tarda el desarrollo?",
+      "respuesta": "Los tiempos se definen según el alcance de cada proyecto. No trabajamos con plazos genéricos: el plazo se acuerda junto con el presupuesto.",
+      "orden": 3,
+      "publicada": true
+    },
+    {
+      "slug": "revisiones",
+      "pregunta": "¿Cuántas revisiones están incluidas?",
+      "respuesta": "La cantidad de revisiones incluidas se acuerda con cada cliente antes de comenzar el trabajo.",
+      "orden": 4,
+      "publicada": true
+    },
+    {
+      "slug": "mantenimiento",
+      "pregunta": "¿Qué incluye el mantenimiento?",
+      "respuesta": "Hay dos referencias: $10.000 ARS mensuales para páginas estáticas y $40.000 ARS mensuales para aplicaciones con panel de administración. El mantenimiento no incluye funcionalidades nuevas ilimitadas: las tareas incluidas y los límites se definen con cada cliente.",
+      "orden": 5,
+      "publicada": true
+    },
+    {
+      "slug": "facturacion",
+      "pregunta": "¿Cómo es la facturación?",
+      "respuesta": "Las condiciones de facturación se acuerdan con cada cliente.",
+      "orden": 6,
+      "publicada": true
+    },
+    {
+      "slug": "tipos-de-negocios",
+      "pregunta": "¿Con qué tipo de negocios trabajan?",
+      "respuesta": "Trabajamos con negocios y emprendimientos: barberías, restaurantes, tiendas de ropa, consultorios, centros médicos y empresas que necesiten presencia digital, páginas web o sistemas de gestión.",
+      "orden": 7,
+      "publicada": true
+    },
+    {
+      "slug": "como-pedir-presupuesto",
+      "pregunta": "¿Cómo pido un presupuesto?",
+      "respuesta": "Completá el formulario de contacto o escribinos por WhatsApp con los datos de tu negocio, el rubro, la solución que buscás y la necesidad o problema a resolver. La primera consulta no compromete nada.",
+      "orden": 8,
+      "publicada": true
+    }
+  ],
+  "proyectos": [],
+  "videos": [
+    {
+      "slug": "por-que-tu-negocio-necesita-una-web",
+      "titulo": "¿Por qué tu negocio necesita una web?",
+      "descripcion": "Qué pasa cuando alguien busca tu negocio y no encuentra información, y cómo una página web ayuda a evitarlo.",
+      "archivo_o_url": null,
+      "publicado": false,
+      "orden": 1
+    },
+    {
+      "slug": "que-es-una-pagina-web",
+      "titulo": "¿Qué es una página web?",
+      "descripcion": "Qué es una página web, qué partes suele tener y cómo ayuda a tu negocio a presentarse con claridad.",
+      "archivo_o_url": null,
+      "publicado": false,
+      "orden": 2
+    },
+    {
+      "slug": "que-es-una-aplicacion-web",
+      "titulo": "¿Qué es una aplicación web?",
+      "descripcion": "Qué es una aplicación web, en qué se diferencia de una página y qué tareas puede resolver para tu negocio.",
+      "archivo_o_url": null,
+      "publicado": false,
+      "orden": 3
+    },
+    {
+      "slug": "pagina-web-para-tienda-de-ropa",
+      "titulo": "Una página web para tu tienda de ropa",
+      "descripcion": "Ejemplo de cómo una tienda de ropa puede mostrarse en internet con catálogo, talles y contacto.",
+      "archivo_o_url": null,
+      "publicado": false,
+      "orden": 4
+    }
+  ],
+  "notas": {
+    "precios": "Los importes son precios de referencia en ARS. El alcance se acuerda con cada cliente. Dominio y alojamiento se presupuestan aparte cuando corresponda.",
+    "mantenimiento_pendiente": "El detalle exacto de tareas incluidas en el mantenimiento no está definido: debe completarse con el propietario del sitio."
+  }
+}

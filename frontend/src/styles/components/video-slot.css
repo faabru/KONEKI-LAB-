@@ -1,0 +1,69 @@
+.video-slot {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--surface-3);
+  border: 1px solid var(--line);
+}
+
+.video-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+    var(--surface-3);
+  background-size: 40px 40px, 40px 40px, auto;
+}
+
+.video-placeholder-icon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--red);
+}
+
+.video-placeholder-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.video-placeholder-texto {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.video-titulo {
+  font-size: 16.5px;
+  line-height: 1.35;
+}
+
+.video-desc {
+  color: var(--text-2);
+  font-size: 14.5px;
+}

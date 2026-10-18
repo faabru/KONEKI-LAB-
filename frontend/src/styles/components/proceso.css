@@ -1,0 +1,141 @@
+.proceso-linea {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 16px;
+  position: relative;
+  counter-reset: none;
+}
+
+/* Línea horizontal con nodos (escritorio) */
+.proceso-linea::before {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: 2%;
+  right: 2%;
+  height: 1.5px;
+  background: linear-gradient(
+    90deg,
+    rgba(239, 237, 228, 0.35),
+    rgba(232, 60, 60, 0.7)
+  );
+}
+
+.proceso-paso {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.proceso-nodo {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  border: 1.5px solid rgba(239, 237, 228, 0.35);
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+.proceso-nodo-punto {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--red);
+  animation: node-pulse 3.4s ease-in-out infinite;
+}
+
+.proceso-paso:last-child .proceso-nodo {
+  border-color: var(--red);
+  box-shadow: var(--glow-red);
+}
+
+.proceso-num {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  margin-top: 8px;
+}
+
+.proceso-paso h3 {
+  font-size: 14.5px;
+  line-height: 1.35;
+}
+
+.proceso-paso p {
+  color: var(--text-2);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.proceso-linea-decor {
+  margin-top: clamp(36px, 6vw, 60px);
+  color: var(--red);
+  opacity: 0.55;
+}
+
+@media (max-width: 1024px) {
+  .proceso-linea {
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 34px;
+  }
+
+  .proceso-linea::before {
+    display: none;
+  }
+}
+
+/* Vertical en móvil */
+@media (max-width: 640px) {
+  .proceso-linea {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .proceso-paso {
+    display: block;
+    position: relative;
+    padding-bottom: 30px;
+    padding-left: 52px;
+    border-left: 1.5px solid rgba(239, 237, 228, 0.25);
+    margin-left: 15px;
+  }
+
+  .proceso-paso:last-child {
+    border-left-color: transparent;
+    padding-bottom: 0;
+  }
+
+  .proceso-nodo {
+    position: absolute;
+    left: -16px;
+    top: 0;
+    width: 30px;
+    height: 30px;
+  }
+
+  .proceso-nodo-punto {
+    width: 9px;
+    height: 9px;
+  }
+
+  .proceso-num {
+    display: block;
+    margin-top: 6px;
+  }
+
+  .proceso-paso h3 {
+    font-size: 16px;
+    margin-top: 4px;
+  }
+
+  .proceso-paso p {
+    font-size: 14.5px;
+    margin-top: 6px;
+  }
+}

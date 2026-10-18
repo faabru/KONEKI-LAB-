@@ -1,0 +1,102 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  padding-top: var(--header-h);
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 11, 0.94) 0%,
+    rgba(10, 10, 11, 0.6) 40%,
+    rgba(10, 10, 11, 0.15) 75%,
+    rgba(10, 10, 11, 0.45) 100%
+  );
+}
+
+.hero .bg-grid {
+  opacity: 0.6;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-block: clamp(48px, 8vw, 96px);
+  max-width: 1000px;
+}
+
+.hero-title {
+  max-width: 15ch;
+}
+
+.hero-title .accent {
+  color: var(--red);
+}
+
+.hero-sub {
+  margin-top: 22px;
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.55;
+  color: var(--text-2);
+  max-width: 620px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.hero-ascii {
+  position: absolute;
+  right: 28px;
+  top: calc(var(--header-h) + 28px);
+  z-index: 2;
+  max-width: 160px;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .hero-gradient {
+    background: linear-gradient(
+      to top,
+      rgba(10, 10, 11, 0.97) 0%,
+      rgba(10, 10, 11, 0.82) 45%,
+      rgba(10, 10, 11, 0.55) 100%
+    );
+  }
+
+  .hero-ascii {
+    display: none;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+}
+
+/* Con prefers-reduced-motion el video se reemplaza por la imagen de portada */
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    display: none;
+  }
+
+  .hero {
+    background: url("/assets/koneki_lab_3d_logo_poster.jpg") center / cover no-repeat;
+  }
+}

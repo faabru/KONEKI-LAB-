@@ -1,0 +1,239 @@
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+.contacto-info {
+  position: sticky;
+  top: 110px;
+}
+
+.contacto-plan {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  color: var(--cream);
+  font-size: 14.5px;
+}
+
+.contacto-canales {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.contacto-sin-canales {
+  color: var(--muted);
+  font-size: 14px;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+}
+
+.contacto-privacidad {
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 13.5px;
+  max-width: 46ch;
+}
+
+/* Formulario */
+.contacto-form {
+  padding: clamp(24px, 4vw, 40px);
+  display: grid;
+  gap: 20px;
+}
+
+.form-plan-mencion {
+  font-size: 15px;
+  color: var(--text-2);
+}
+
+.form-fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-campo {
+  display: grid;
+  gap: 7px;
+}
+
+.form-campo label,
+.form-check label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+}
+
+.req {
+  color: var(--red);
+}
+
+.form-campo input,
+.form-campo select,
+.form-campo textarea {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--cream);
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+}
+
+.form-campo textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-campo input::placeholder,
+.form-campo textarea::placeholder {
+  color: var(--muted);
+}
+
+.form-campo input:focus,
+.form-campo select:focus,
+.form-campo textarea:focus {
+  outline: none;
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(232, 60, 60, 0.25);
+}
+
+.form-campo input[aria-invalid="true"],
+.form-campo select[aria-invalid="true"],
+.form-campo textarea[aria-invalid="true"] {
+  border-color: var(--red-strong);
+}
+
+.form-campo select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--red) 50%),
+    linear-gradient(135deg, var(--red) 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(50% - 2px), calc(100% - 13px) calc(50% - 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.form-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  min-height: 18px;
+}
+
+.contador {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-left: auto;
+}
+
+.contador-rojo {
+  color: var(--red-strong);
+}
+
+.form-error {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--red-strong);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.form-error svg {
+  flex: none;
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.form-check input {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--red);
+  flex: none;
+}
+
+/* Honeypot oculto visualmente */
+.form-hp {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Estados */
+.form-estado {
+  min-height: 24px;
+}
+
+.estado-cargando {
+  color: var(--text-2);
+  font-size: 14.5px;
+}
+
+.estado-ok {
+  background: rgba(74, 185, 120, 0.1);
+  border: 1px solid rgba(74, 185, 120, 0.5);
+  color: #7ee2a8;
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  font-size: 14.5px;
+}
+
+.estado-ok:focus {
+  outline: 2px solid rgba(74, 185, 120, 0.6);
+  outline-offset: 2px;
+}
+
+.estado-error {
+  background: rgba(232, 60, 60, 0.1);
+  border: 1px solid rgba(232, 60, 60, 0.5);
+  color: #ff9b9b;
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  font-size: 14.5px;
+}
+
+.form-submit {
+  justify-content: center;
+  width: 100%;
+}
+
+.form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .contacto-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto-info {
+    position: static;
+  }
+
+  .form-fila {
+    grid-template-columns: 1fr;
+  }
+}

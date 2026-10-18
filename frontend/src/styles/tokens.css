@@ -1,0 +1,27 @@
+﻿:root {
+  --bg: #0a0a0b;
+  --surface: #111113;
+  --surface-2: #17171a;
+  --surface-3: #1b1b1e;
+  --cream: #efede4;
+  --text-2: #b9b8b0;
+  --muted: #8d8d88;
+  --red: #e83c3c;
+  --red-strong: #dc2626;
+  --line: rgba(239, 237, 228, 0.12);
+  --line-strong: rgba(239, 237, 228, 0.28);
+  --grid: rgba(255, 255, 255, 0.04);
+  --radius-sm: 12px;
+  --radius: 20px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+  --glow-red: 0 0 80px rgba(232, 60, 60, 0.18);
+
+  --font-title: "Krona One", system-ui, sans-serif;
+  --font-body: "Space Grotesk Variable", "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  --container: 1200px;
+  --section-pad: clamp(64px, 10vw, 120px);
+  --header-h: 76px;
+}

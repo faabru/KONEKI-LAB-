@@ -1,0 +1,43 @@
+# Opción con Docker: MySQL + API de Koneki X Lab.
+# El frontend se corre por separado con npm (ver README).
+#
+#   docker compose up --build
+#
+# La API queda en http://127.0.0.1:8000 (docs en /api/docs).
+
+services:
+  db:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: koneki_lab
+      MYSQL_USER: koneki
+      MYSQL_PASSWORD: koneki_secreta
+      MYSQL_ROOT_PASSWORD: root_secreta
+    ports:
+      - "3306:3306"
+    volumes:
+      - datos_mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot_secreta"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  api:
+    build: ./backend
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: mysql+pymysql://koneki:koneki_secreta@db:3306/koneki_lab?charset=utf8mb4
+      CORS_ORIGINS: http://localhost:5173,http://127.0.0.1:5173,http://localhost:4173
+      ENTORNO: docker
+      SEED_AUTOMATICO: "true"
+      # SMTP opcional: definir en un archivo backend/.env si se necesita
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  datos_mysql:

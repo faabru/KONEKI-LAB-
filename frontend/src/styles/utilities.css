@@ -1,0 +1,184 @@
+.container {
+  width: min(100% - 40px, var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-pad);
+}
+
+.kicker {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 20px;
+}
+
+.section-title {
+  max-width: 20ch;
+}
+
+.section-lead {
+  margin-top: 18px;
+  color: var(--text-2);
+  max-width: 62ch;
+}
+
+/* Grilla técnica de fondo */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 40%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Resplandores rojos suaves */
+.bg-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(600px 400px at 85% -5%, rgba(232, 60, 60, 0.16), transparent 60%),
+    radial-gradient(500px 380px at 5% 105%, rgba(232, 60, 60, 0.12), transparent 60%);
+}
+
+/* Códigos ASCII decorativos */
+.ascii-code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  opacity: 0.45;
+  user-select: none;
+  word-break: break-all;
+  line-height: 1.9;
+}
+
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 30px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease,
+    border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--red-strong);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(232, 60, 60, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  border: 1.5px solid var(--cream);
+  color: var(--cream);
+}
+
+.btn-secondary:hover {
+  background: rgba(239, 237, 228, 0.08);
+  transform: translateY(-2px);
+}
+
+.btn-tertiary {
+  color: var(--cream);
+  padding-inline: 8px;
+}
+
+.btn-tertiary::after {
+  content: "→";
+  transition: transform 0.2s ease;
+}
+
+.btn-tertiary:hover::after {
+  transform: translateX(5px);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Chips */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  color: var(--text-2);
+}
+
+.chip-active {
+  background: var(--cream);
+  color: var(--bg);
+  border-color: var(--cream);
+}
+
+/* Tarjetas */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(24px, 3vw, 32px);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: rgba(232, 60, 60, 0.5);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-red);
+}
+
+/* Check rojo en listas */
+.check-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  color: var(--text-2);
+  font-size: 15px;
+}
+
+.check-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* Línea de circuito separadora (SVG inline) */
+.circuit-line {
+  width: 100%;
+  height: 40px;
+  overflow: visible;
+  color: var(--cream);
+  opacity: 0.35;
+}
