@@ -11,7 +11,7 @@ export default function VideoSlot({ video }) {
   const publicado = video?.publicado && tieneArchivo;
 
   return (
-    <article className="video-slot card reveal">
+    <article className="video-slot card">
       <div className="video-frame">
         {publicado ? (
           <video

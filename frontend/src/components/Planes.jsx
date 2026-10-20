@@ -1,25 +1,36 @@
 import { useMemo, useState } from "react";
 import { useResource } from "../hooks/useResource.js";
 import { seedCatalogo, NOTAS } from "../data/fallback.js";
-import { formatARS } from "../utils/formato.js";
+import { formatUSD, montoARS } from "../utils/formato.js";
 import { CircuitLine } from "./Decorativo.jsx";
 import "../styles/components/planes.css";
 
 const CATEGORIAS_TABS = ["paginas-web", "cartas-digitales", "mantenimiento"];
 
 function PlanCard({ plan, categoria, onConsultar }) {
-  const precio = formatARS(plan.precio_ars);
+  const precioArs = montoARS(plan.precio_ars);
+  const precioUsd = formatUSD(plan.precio_usd);
+  const esMensual = /mensual/i.test(plan.etiqueta_precio || "");
   return (
     <article className="card plan-card reveal">
       <span className="chip">{categoria.titulo}</span>
       <h3 className="plan-nombre">{plan.nombre}</h3>
       <p className="plan-precio">
-        {precio ? (
+        {precioArs ? (
           <>
-            <span className="plan-monto">{precio}</span>
+            <span className="plan-monto">
+              <span className="plan-moneda">ARS</span>
+              {precioArs}
+            </span>
             <span className="plan-etiqueta">
               {plan.etiqueta_precio || "ARS · PRECIO DE REFERENCIA"}
             </span>
+            {precioUsd && (
+              <span className="plan-usd">
+                {precioUsd}
+                {esMensual ? " · mensuales" : " · referencia"}
+              </span>
+            )}
           </>
         ) : (
           <span className="plan-monto plan-monto-texto">
@@ -159,7 +170,16 @@ export default function Planes({ onConsultarPlan }) {
                         {e.nota && <span className="extra-nota">{e.nota}</span>}
                       </td>
                       <td data-label="Referencia" className="extra-precio">
-                        {e.precio_ars ? formatARS(e.precio_ars) : "Se cotiza aparte"}
+                        {e.precio_ars ? (
+                          <>
+                            <span className="extra-ars">ARS {montoARS(e.precio_ars)}</span>
+                            {e.precio_usd ? (
+                              <span className="extra-usd">{formatUSD(e.precio_usd)}</span>
+                            ) : null}
+                          </>
+                        ) : (
+                          "Se cotiza aparte"
+                        )}
                       </td>
                     </tr>
                   ))}
@@ -214,8 +234,8 @@ export default function Planes({ onConsultarPlan }) {
         )}
 
         <p className="planes-nota reveal">
-          Los importes son precios de referencia en ARS. El alcance se acuerda con cada
-          cliente. El dominio y el alojamiento se presupuestan aparte cuando corresponda.
+          Los importes son precios de referencia en ARS. {NOTAS.precios_usd} El dominio y
+          el alojamiento se presupuestan aparte cuando corresponda.
         </p>
       </div>
     </section>

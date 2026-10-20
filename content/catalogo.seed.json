@@ -12,6 +12,7 @@
           "slug": "paginas-web-basico",
           "nombre": "Plan básico",
           "precio_ars": 200000,
+          "precio_usd": 200,
           "etiqueta_precio": null,
           "descripcion": "Una página web informativa y responsive para presentar tu negocio.",
           "orden": 1,
@@ -28,6 +29,7 @@
           "slug": "paginas-web-profesional",
           "nombre": "Plan profesional",
           "precio_ars": 400000,
+          "precio_usd": 400,
           "etiqueta_precio": null,
           "descripcion": "Todo lo del plan básico, con un diseño más elaborado y material audiovisual.",
           "orden": 2,
@@ -55,6 +57,7 @@
           "slug": "cartas-basico",
           "nombre": "Plan básico",
           "precio_ars": 150000,
+          "precio_usd": 150,
           "etiqueta_precio": null,
           "descripcion": "Carta digital estática con presentación del negocio y menú.",
           "orden": 1,
@@ -72,6 +75,7 @@
           "slug": "cartas-moderado",
           "nombre": "Plan moderado",
           "precio_ars": 200000,
+          "precio_usd": 200,
           "etiqueta_precio": null,
           "descripcion": "Carta digital estática con carga inicial de hasta 20 platos e imágenes.",
           "orden": 2,
@@ -89,6 +93,7 @@
           "slug": "cartas-premium",
           "nombre": "Plan premium",
           "precio_ars": 300000,
+          "precio_usd": 300,
           "etiqueta_precio": null,
           "descripcion": "Aplicación web con panel de administración para gestionar el menú.",
           "orden": 3,
@@ -111,6 +116,7 @@
           "nombre": "Actualización de precios",
           "descripcion": "Actualización sencilla de precios de una carta estática, por intervención.",
           "precio_ars": 10000,
+          "precio_usd": 10,
           "nota": "Precio de referencia por intervención.",
           "orden": 1
         },
@@ -119,6 +125,7 @@
           "nombre": "Pack de hasta 10 imágenes",
           "descripcion": "Pack de imágenes adicionales para la carta.",
           "precio_ars": 50000,
+          "precio_usd": 50,
           "nota": "Es un pack de imágenes, no de platos: con dos imágenes por plato equivale como máximo a cinco platos con dos imágenes cada uno.",
           "orden": 2
         },
@@ -127,6 +134,7 @@
           "nombre": "Modificación o creación de imágenes",
           "descripcion": "Modificación o creación de imágenes para la carta o las redes.",
           "precio_ars": 20000,
+          "precio_usd": 20,
           "nota": "Precio de referencia, previa definición del alcance.",
           "orden": 3
         },
@@ -135,6 +143,7 @@
           "nombre": "Edición o cambio de video",
           "descripcion": "Edición o modificación de un video existente.",
           "precio_ars": 30000,
+          "precio_usd": 30,
           "nota": "Precio de referencia.",
           "orden": 4
         },
@@ -206,6 +215,7 @@
           "slug": "mantenimiento-estatica",
           "nombre": "Página estática",
           "precio_ars": 10000,
+          "precio_usd": 10,
           "etiqueta_precio": "ARS · mensuales",
           "descripcion": "Mantenimiento mensual para páginas estáticas.",
           "orden": 1,
@@ -221,6 +231,7 @@
           "slug": "mantenimiento-aplicacion",
           "nombre": "Aplicación con panel",
           "precio_ars": 40000,
+          "precio_usd": 40,
           "etiqueta_precio": "ARS · mensuales",
           "descripcion": "Mantenimiento mensual para aplicaciones con panel de administración.",
           "orden": 2,
@@ -240,7 +251,7 @@
     {
       "slug": "precios-referencia",
       "pregunta": "¿Los precios publicados son fijos?",
-      "respuesta": "Los importes publicados son precios de referencia en pesos argentinos. El alcance definitivo se acuerda con cada cliente, por lo que el presupuesto final puede variar según las funcionalidades y el trabajo involucrado.",
+      "respuesta": "Los importes publicados son precios de referencia en pesos argentinos. El valor en dólares es orientativo, calculado a un tipo de cambio de referencia. El alcance definitivo se acuerda con cada cliente, por lo que el presupuesto final puede variar según las funcionalidades y el trabajo involucrado.",
       "orden": 1,
       "publicada": true
     },
@@ -331,6 +342,8 @@
   ],
   "notas": {
     "precios": "Los importes son precios de referencia en ARS. El alcance se acuerda con cada cliente. Dominio y alojamiento se presupuestan aparte cuando corresponda.",
+    "precios_usd": "El valor en dólares se calcula a un tipo de cambio de referencia de 1.000 ARS por USD y es solo orientativo: el presupuesto final se acuerda en pesos argentinos. Actualizar 'tipo_cambio_usd' cuando corresponda.",
+    "tipo_cambio_usd": 1000,
     "mantenimiento_pendiente": "El detalle exacto de tareas incluidas en el mantenimiento no está definido: debe completarse con el propietario del sitio."
   }
 }

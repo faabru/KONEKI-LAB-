@@ -51,7 +51,7 @@ export default function Header() {
     <header className={`header ${scroll ? "is-scrolled" : ""}`}>
       <div className="container header-inner">
         <a href="#inicio" className="header-logo" aria-label="Koneki X Lab · Inicio">
-          <img src="/assets/logo-koneki-x-lab.png" alt="Koneki X Lab" width="160" height="44" />
+          <img src="/assets/logo-koneki-x-lab.png" alt="Koneki X Lab" width="116" height="54" />
         </a>
 
         <nav

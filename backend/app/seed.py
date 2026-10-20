@@ -48,6 +48,7 @@ def aplicar_seed(db: Session, forzar: bool = False) -> dict:
                 slug=plan["slug"],
                 nombre=plan["nombre"],
                 precio_ars=plan.get("precio_ars"),
+                precio_usd=plan.get("precio_usd"),
                 etiqueta_precio=plan.get("etiqueta_precio"),
                 descripcion=plan.get("descripcion", ""),
                 orden=plan.get("orden", 0),
@@ -68,6 +69,7 @@ def aplicar_seed(db: Session, forzar: bool = False) -> dict:
                     nombre=extra["nombre"],
                     descripcion=extra.get("descripcion", ""),
                     precio_ars=extra.get("precio_ars"),
+                    precio_usd=extra.get("precio_usd"),
                     nota=extra.get("nota", ""),
                     orden=extra.get("orden", 0),
                 )

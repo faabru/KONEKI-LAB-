@@ -20,6 +20,7 @@ def _categoria_a_dict(c: Categoria) -> dict:
                 "slug": p.slug,
                 "nombre": p.nombre,
                 "precio_ars": p.precio_ars,
+                "precio_usd": p.precio_usd,
                 "etiqueta_precio": p.etiqueta_precio,
                 "descripcion": p.descripcion,
                 "orden": p.orden,
@@ -34,6 +35,7 @@ def _categoria_a_dict(c: Categoria) -> dict:
                 "nombre": e.nombre,
                 "descripcion": e.descripcion,
                 "precio_ars": e.precio_ars,
+                "precio_usd": e.precio_usd,
                 "nota": e.nota,
                 "orden": e.orden,
             }

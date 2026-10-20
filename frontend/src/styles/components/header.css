@@ -22,10 +22,21 @@
   min-height: var(--header-h);
 }
 
+.header-logo {
+  display: inline-flex;
+  align-items: center;
+}
+
 .header-logo img {
-  height: 42px;
+  height: 54px;
   width: auto;
   object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .header-logo img {
+    height: 46px;
+  }
 }
 
 .header-nav {

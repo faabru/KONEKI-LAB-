@@ -58,6 +58,17 @@
   color: var(--cream);
   text-transform: none;
   letter-spacing: -0.01em;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.plan-moneda {
+  font-family: var(--font-mono);
+  font-size: 0.42em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--muted);
 }
 
 .plan-monto-texto {
@@ -72,6 +83,14 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
+}
+
+.plan-usd {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--red);
 }
 
 .plan-desc {
@@ -170,6 +189,18 @@
   font-weight: 700;
   color: var(--cream);
   white-space: nowrap;
+}
+
+.extra-ars {
+  display: block;
+}
+
+.extra-usd {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--red);
 }
 
 .planes-linea {

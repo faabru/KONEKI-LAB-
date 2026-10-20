@@ -14,8 +14,8 @@ export default function Footer() {
           <img
             src="/assets/logo-koneki-x-lab.png"
             alt="Koneki X Lab"
-            width="180"
-            height="50"
+            width="154"
+            height="72"
             className="footer-logo"
           />
           <p className="footer-desc">

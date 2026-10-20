@@ -38,6 +38,7 @@ class Plan(Base):
     slug: Mapped[str] = mapped_column(String(80), unique=True, index=True)
     nombre: Mapped[str] = mapped_column(String(120))
     precio_ars: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    precio_usd: Mapped[int | None] = mapped_column(Integer, nullable=True)
     etiqueta_precio: Mapped[str | None] = mapped_column(String(80), nullable=True)
     descripcion: Mapped[str] = mapped_column(Text, default="")
     orden: Mapped[int] = mapped_column(Integer, default=0)
@@ -75,6 +76,7 @@ class Extra(Base):
     nombre: Mapped[str] = mapped_column(String(160))
     descripcion: Mapped[str] = mapped_column(Text, default="")
     precio_ars: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    precio_usd: Mapped[int | None] = mapped_column(Integer, nullable=True)
     nota: Mapped[str] = mapped_column(Text, default="")
     orden: Mapped[int] = mapped_column(Integer, default=0)
 

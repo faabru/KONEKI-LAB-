@@ -24,12 +24,12 @@ export default function Faq() {
           </p>
         </header>
 
-        <div className="faq-lista">
+        <div className="faq-lista reveal">
           {faqs.map((f, i) => {
             const id = `faq-${f.slug}`;
             const activa = abierta === i;
             return (
-              <div className={`faq-item reveal ${activa ? "is-open" : ""}`} key={f.slug}>
+              <div className={`faq-item ${activa ? "is-open" : ""}`} key={f.slug}>
                 <h3 className="faq-titulo">
                   <button
                     type="button"

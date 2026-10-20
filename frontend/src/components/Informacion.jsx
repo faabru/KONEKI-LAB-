@@ -207,8 +207,8 @@ export default function Informacion() {
         </article>
 
         {/* Videos explicativos */}
-        <article className="info-videos" aria-labelledby="tit-videos">
-          <div className="reveal">
+        <article className="info-videos reveal" aria-labelledby="tit-videos">
+          <div>
             <p className="kicker">{"// VIDEOS EXPLICATIVOS"}</p>
             <h3 id="tit-videos">Aprender a tu ritmo</h3>
             <p className="section-lead">

@@ -1,12 +1,21 @@
-.reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+/* Aparición al cargar: animación CSS pura. No oculta el contenido de forma
+   permanente (termina en opacity 1), por lo que nunca puede dejar secciones
+   invisibles aunque falle cualquier script. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: reveal-in 0.55s ease both;
+  }
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes node-pulse {
@@ -34,10 +43,5 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
   }
 }
