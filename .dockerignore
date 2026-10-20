@@ -1,0 +1,46 @@
+# Contexto de build = raíz del repositorio.
+# Se excluye todo lo que la imagen NO necesita. NO excluir backend/ ni content/.
+
+# Frontend completo (no forma parte de la imagen del backend)
+frontend/
+
+# Dependencias y entorno
+node_modules/
+**/node_modules/
+.venv/
+**/.venv/
+venv/
+**/venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+**/.pytest_cache/
+
+# Git y metadatos
+.git/
+.gitignore
+
+# Archivos locales / temporales
+*.log
+dev.log
+server.log
+*.db
+Koneki Lab *.html
+
+# Materiales de trabajo (no necesarios en la imagen)
+files/
+"imagenes y videos"/
+
+# Configuración local con posibles secretos
+.env
+**/.env
+**/.env.local
+.env.example
+**/.env.example
+
+# Contenedores y docs auxiliares
+docker-compose.yml
+Dockerfile
+backend/Dockerfile
+README.md

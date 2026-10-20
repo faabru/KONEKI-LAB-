@@ -25,7 +25,9 @@ services:
       retries: 12
 
   api:
-    build: ./backend
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
     restart: unless-stopped
     environment:
       DATABASE_URL: mysql+pymysql://koneki:koneki_secreta@db:3306/koneki_lab?charset=utf8mb4

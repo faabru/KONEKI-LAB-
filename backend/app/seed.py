@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 
 from sqlalchemy import select
@@ -6,11 +7,40 @@ from sqlalchemy.orm import Session
 
 from .models import Categoria, Extra, Faq, Plan, PlanItem, Proyecto, Video
 
-# content/catalogo.seed.json es la fuente única de verdad (relativo a backend/)
-RUTA_SEED = Path(__file__).resolve().parents[2] / "content" / "catalogo.seed.json"
+# content/catalogo.seed.json es la fuente única de verdad.
+#
+# La ubicación del archivo depende del layout de ejecución:
+#   - Local / docker-compose: backend/app/seed.py  ->  backend/app  ->  parents[2] = raíz del repo
+#   - Contenedor (Render):    /app/app/seed.py     ->  /app/app     ->  parents[1] = /app
+# Se prioriza la variable de entorno SEED_PATH para poder forzar una ruta explícita.
+def _resolver_ruta_seed() -> Path:
+    override = os.getenv("SEED_PATH")
+    if override:
+        return Path(override)
+
+    candidatos = [
+        # Contenedor: /app/content/catalogo.seed.json (ver Dockerfile)
+        Path(__file__).resolve().parents[1] / "content" / "catalogo.seed.json",
+        # Raíz del repo: content/catalogo.seed.json
+        Path(__file__).resolve().parents[2] / "content" / "catalogo.seed.json",
+    ]
+    for ruta in candidatos:
+        if ruta.is_file():
+            return ruta
+    # Si no existe ninguno, se devuelve el primero para que el error sea explícito.
+    return candidatos[0]
+
+
+RUTA_SEED = _resolver_ruta_seed()
 
 
 def _cargar_json() -> dict:
+    if not RUTA_SEED.is_file():
+        raise FileNotFoundError(
+            f"No se encontró el catálogo en {RUTA_SEED}. "
+            "Definí SEED_PATH o verificá que content/catalogo.seed.json "
+            "se copie en la imagen (ver Dockerfile)."
+        )
     with open(RUTA_SEED, encoding="utf-8") as f:
         return json.load(f)
 

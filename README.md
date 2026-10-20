@@ -117,6 +117,37 @@ Ver `backend/.env.example`.
 
 ---
 
+## Despliegue del backend en Render (Docker Web Service)
+
+El `backend/Dockerfile` espera como **contexto de build la raíz del repositorio**,
+porque necesita copiar `content/catalogo.seed.json`, que está fuera de `backend/`.
+
+En el servicio de Render:
+
+| Ajuste | Valor |
+|---|---|
+| Environment | Docker |
+| Dockerfile Path | `./backend/Dockerfile` |
+| Docker Build Context Directory | `.` (raíz del repositorio) |
+| Health Check Path | `/api/health` |
+
+Variables de entorno mínimas del servicio:
+
+| Variable | Valor |
+|---|---|
+| `DATABASE_URL` | Cadena de conexión MySQL (Render MySQL o externa): `mysql+pymysql://usuario:clave@host:3306/koneki_lab?charset=utf8mb4` |
+| `CORS_ORIGINS` | Dominio(s) del frontend, separados por coma |
+| `ENTORNO` | `produccion` |
+| `SEED_AUTOMATICO` | `true` |
+
+Opcionales: las variables `SMTP_*` (si no se definen, no se envía correo) y
+`SEED_PATH` (para forzar una ruta explícita al catálogo; normalmente no hace falta).
+
+Las tablas se crean solas con `create_all` al arrancar, así que no se necesita
+ejecutar `schema.sql` a mano.
+
+---
+
 ## Contenido: fuente única
 
 `content/catalogo.seed.json` es la única fuente de verdad del catálogo:
@@ -144,7 +175,7 @@ npm run preview    # sirve el build
 
 # Backend
 cd backend
-python -m pytest   # tests (20)
+python -m pytest   # tests (22)
 python -m app.cli seed --force           # recarga el catálogo
 python -m app.cli solicitudes listar     # últimas solicitudes
 python -m app.cli solicitudes ver <id>   # detalle de una solicitud
