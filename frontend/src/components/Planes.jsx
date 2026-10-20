@@ -119,6 +119,10 @@ export default function Planes({ onConsultarPlan }) {
           })}
         </div>
 
+        {catActiva?.descripcion && (
+          <p className="planes-cat-desc reveal">{catActiva.descripcion}</p>
+        )}
+
         <div
           className="planes-grid"
           role="tabpanel"

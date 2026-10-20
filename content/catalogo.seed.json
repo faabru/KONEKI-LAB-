@@ -4,7 +4,7 @@
     {
       "slug": "paginas-web",
       "titulo": "Páginas web",
-      "descripcion": "Sitios informativos para presentar tu negocio en internet, con diseño adaptado a celulares, tabletas y computadoras.",
+      "descripcion": "Páginas web estáticas e informativas para presentar tu negocio en internet: muestran información, imágenes y datos de contacto, con diseño adaptado a celulares, tabletas y computadoras. Los precios publicados corresponden a estas páginas. Si necesitás un sistema con base de datos, panel de administración o funcionalidades a medida, se presupuesta como aplicación según el proyecto.",
       "orden": 1,
       "tipo_precio": "fijo",
       "planes": [
@@ -14,7 +14,7 @@
           "precio_ars": 200000,
           "precio_usd": 200,
           "etiqueta_precio": null,
-          "descripcion": "Una página web informativa y responsive para presentar tu negocio.",
+          "descripcion": "Página web estática e informativa y responsive para presentar tu negocio.",
           "orden": 1,
           "activo": true,
           "items": [
@@ -31,7 +31,7 @@
           "precio_ars": 400000,
           "precio_usd": 400,
           "etiqueta_precio": null,
-          "descripcion": "Todo lo del plan básico, con un diseño más elaborado y material audiovisual.",
+          "descripcion": "Página web estática e informativa, con un diseño más elaborado y material audiovisual. No incluye panel de administración ni base de datos.",
           "orden": 2,
           "activo": true,
           "items": [
