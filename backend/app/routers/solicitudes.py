@@ -1,9 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 from sqlalchemy.orm import Session
 
-from ..config import get_settings
 from ..database import get_db
-from ..mail import enviar_aviso_solicitud, smtp_configurado
+from ..mail import (
+    brevo_configurado,
+    enviar_aviso_brevo,
+    enviar_aviso_solicitud,
+    smtp_configurado,
+)
 from ..models import Solicitud
 from ..schemas import SolicitudEntrada, SolicitudSalida
 from ..security import RateLimitExcedido, get_solicitudes_limiter
@@ -67,8 +71,30 @@ def crear_solicitud(
     db.commit()
     db.refresh(solicitud)
 
-    # Aviso opcional por SMTP (si no está configurado, no se envía nada)
-    if smtp_configurado():
+    # Aviso al negocio. Se elige UN solo canal para no enviar correos duplicados:
+    #   - Brevo (API transaccional) si está configurado.
+    #   - SMTP como respaldo si Brevo no lo está.
+    # En ambos casos el fallo es tolerante: la solicitud ya quedó guardada.
+    creada_en = solicitud.creada_en.isoformat() if solicitud.creada_en else ""
+    if brevo_configurado():
+        enviar_aviso_brevo(
+            "Nueva solicitud de contacto — Koneki X Lab",
+            {
+                "id": solicitud.id,
+                "creada_en": creada_en,
+                "nombre_negocio": solicitud.nombre_negocio,
+                "rubro": solicitud.rubro,
+                "solucion": solicitud.solucion,
+                "necesidad": solicitud.necesidad,
+                "presupuesto_orientativo": solicitud.presupuesto_orientativo,
+                "nombre_contacto": solicitud.nombre_contacto,
+                "email": solicitud.email,
+                "telefono": solicitud.telefono,
+                "plan_referencia": solicitud.plan_referencia,
+                "categoria_referencia": solicitud.categoria_referencia,
+            },
+        )
+    elif smtp_configurado():
         cuerpo = "\n".join(
             [
                 f"Nueva solicitud #{solicitud.id}",
@@ -88,7 +114,7 @@ def crear_solicitud(
 
     return SolicitudSalida(
         id=solicitud.id,
-        creada_en=solicitud.creada_en.isoformat() if solicitud.creada_en else "",
+        creada_en=creada_en,
         nombre_negocio=solicitud.nombre_negocio,
         rubro=solicitud.rubro,
         solucion=solicitud.solucion,

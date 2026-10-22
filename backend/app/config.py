@@ -30,6 +30,14 @@ class Settings(BaseSettings):
     smtp_to: str = ""
     smtp_tls: bool = True
 
+    # Brevo (API transaccional). Opcional: si BREVO_API_KEY o el remitente están
+    # vacíos, no se envía nada por Brevo (la solicitud igual se guarda).
+    brevo_api_key: str = ""
+    brevo_sender_email: str = ""
+    brevo_sender_name: str = "Koneki X Lab"
+    brevo_recipient_email: str = ""
+    brevo_timeout_seg: int = 10
+
     # Carga automática de content/catalogo.seed.json al arrancar (si las tablas están vacías)
     seed_automatico: bool = True
 

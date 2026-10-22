@@ -70,3 +70,63 @@ def test_rate_limit(client, db):
 
     r = client.post("/api/solicitudes", json=SOLICITUD_VALIDA)
     assert r.status_code == 429
+
+
+def test_fallo_brevo_no_duplica_ni_borra(client, db, monkeypatch):
+    """Si Brevo falla, el endpoint sigue respondiendo 201 y la solicitud
+    queda guardada una sola vez."""
+    from app import mail
+    from app.config import get_settings
+
+    s = get_settings()
+    monkeypatch.setattr(s, "brevo_api_key", "clave-falsa", raising=False)
+    monkeypatch.setattr(s, "brevo_sender_email", "remitente@ejemplo.com", raising=False)
+    monkeypatch.setattr(s, "brevo_recipient_email", "destino@ejemplo.com", raising=False)
+
+    def fake_urlopen(*a, **k):
+        raise TimeoutError("timeout simulado")
+
+    monkeypatch.setattr(mail.urllib.request, "urlopen", fake_urlopen)
+    monkeypatch.setattr(s, "smtp_host", "", raising=False)
+
+    antes = _count(db)
+    r = client.post("/api/solicitudes", json=SOLICITUD_VALIDA)
+    assert r.status_code == 201, r.text
+    assert r.json()["id"] > 0
+    assert _count(db) == antes + 1
+
+
+def test_exito_brevo_mantiene_contrato(client, db, monkeypatch):
+    """Con Brevo configurado y OK, la respuesta mantiene el mismo contrato."""
+    from app import mail
+    from app.config import get_settings
+
+    s = get_settings()
+    monkeypatch.setattr(s, "brevo_api_key", "clave-falsa", raising=False)
+    monkeypatch.setattr(s, "brevo_sender_email", "remitente@ejemplo.com", raising=False)
+    monkeypatch.setattr(s, "brevo_recipient_email", "destino@ejemplo.com", raising=False)
+
+    def fake_urlopen(req, timeout=None):
+        class _R:
+            status = 201
+
+            def read(self):
+                return b"{}"
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *a):
+                return False
+
+        return _R()
+
+    monkeypatch.setattr(mail.urllib.request, "urlopen", fake_urlopen)
+    monkeypatch.setattr(s, "smtp_host", "", raising=False)
+
+    antes = _count(db)
+    r = client.post("/api/solicitudes", json=SOLICITUD_VALIDA)
+    assert r.status_code == 201, r.text
+    datos = r.json()
+    assert set(["id", "creada_en", "nombre_negocio", "estado"]).issubset(datos)
+    assert _count(db) == antes + 1
